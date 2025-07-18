@@ -237,6 +237,14 @@ export default function CariListeTable({
         enableColumnResizing={true}
         enableColumnOrdering={true}
         enableColumnDragging={true}
+        enableExpanding={true}
+        renderDetailPanel={({ row }) => (
+          <Box className="flex flex-col items-start gap-2 p-4 bg-gray-100 rounded-md">
+            <div><b>Cari Kodu:</b> {row.original.CariKod}</div>
+            <div><b>Ünvan:</b> {row.original.CariIsim}</div>
+            <div><b>E-Mail:</b> {row.original.EMail}</div>
+          </Box>
+        )}
         enableRowActions={false}
         onColumnOrderChange={updaterOrValue => {
           let nextOrder = typeof updaterOrValue === 'function' ? updaterOrValue(localColumnOrder) : updaterOrValue;
