@@ -238,7 +238,7 @@ export default function CariListeTable({
         enableColumnOrdering={true}
         enableColumnDragging={true}
         enableExpanding={true}
-        renderDetailPanel={({ row }) => (
+        renderDetailPanel={(_row) => (
           <Box className="w-full p-6 bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col md:flex-row gap-6">
             {/* Fatura İşlemleri */}
             <div className="flex-1 flex flex-col items-start">
