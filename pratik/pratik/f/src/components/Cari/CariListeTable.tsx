@@ -245,7 +245,7 @@ export default function CariListeTable({
             <div><b>E-Mail:</b> {row.original.EMail}</div>
           </Box>
         )}
-        enableRowActions={false}
+        // renderRowActions kaldırıldı
         onColumnOrderChange={updaterOrValue => {
           let nextOrder = typeof updaterOrValue === 'function' ? updaterOrValue(localColumnOrder) : updaterOrValue;
           setLocalColumnOrder(nextOrder);
@@ -286,19 +286,13 @@ export default function CariListeTable({
           setLocalGlobalFilter(nextGlobalFilter);
           onGlobalFilterChange(nextGlobalFilter);
         }}
-        renderRowActions={() => (
-          <Box sx={{ display: 'flex', gap: 1 }}>
-            <Button size="small" color="info">Detay</Button>
-            <Button size="small" color="warning">Düzenle</Button>
-            <Button size="small" color="error">Sil</Button>
-          </Box>
-        )}
         muiTableContainerProps={{ sx: { minHeight: 300 } }}
         muiTableBodyRowProps={{ hover: true }}
         muiTableHeadCellProps={{ sx: { fontWeight: 'bold' } }}
         enableStickyHeader={true}
       />
-      {!searchParams && (
+      {/* Uyarı sadece veri yoksa ve arama yapılmamışsa gösterilecek */}
+      {(!searchParams && (overrideData?.length === 0 || (!overrideData && data.length === 0))) && (
         <Box className="text-center text-gray-400 mt-8">Arama yapmadan tablo verisi gösterilmez.</Box>
       )}
     </Box>
