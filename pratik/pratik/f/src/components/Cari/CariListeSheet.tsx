@@ -102,6 +102,21 @@ export function CariListeSheet({ onSearch, open, onOpenChange }: CariListeSheetP
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <div className="flex flex-col gap-y-6 gap-x-2">
+
+                            {/* Cari Ünvan */}
+                            <FormField
+                control={form.control}
+                name="CariIsim"
+                render={({ field }) => (
+                  <FormItem className="gap-2">
+                    <FormLabel className="text-sm font-semibold text-gray-700 dark:text-gray-200">Cari Ünvan</FormLabel>
+                    <FormControl>
+                      <Input type="text" placeholder="Cari Ünvan" className="h-10 border border-slate-200 dark:border-gray-700 focus:border-teal-500 focus:ring-teal-500/20 text-base px-4" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               {/* Cari Kodu */}
               <FormField
                 control={form.control}
@@ -116,20 +131,7 @@ export function CariListeSheet({ onSearch, open, onOpenChange }: CariListeSheetP
                   </FormItem>
                 )}
               />
-              {/* Cari Ünvan */}
-              <FormField
-                control={form.control}
-                name="CariIsim"
-                render={({ field }) => (
-                  <FormItem className="gap-2">
-                    <FormLabel className="text-sm font-semibold text-gray-700 dark:text-gray-200">Cari Ünvan</FormLabel>
-                    <FormControl>
-                      <Input type="text" placeholder="Cari Ünvan" className="h-10 border border-slate-200 dark:border-gray-700 focus:border-teal-500 focus:ring-teal-500/20 text-base px-4" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+
               {/* Cari Durumu */}
               <FormField
                 control={form.control}
