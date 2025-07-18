@@ -15,3 +15,5 @@ ENV LANGUAGE=tr_TR.UTF-8
 
 # PostgreSQL'in Türkçe locale ile başlatılması için init argümanları
 ENV POSTGRES_INITDB_ARGS="--encoding=UTF8 --lc-collate=tr_TR.UTF-8 --lc-ctype=tr_TR.UTF-8"
+ENV TZ=Europe/Istanbul
+ENV PGTZ=Europe/Istanbul

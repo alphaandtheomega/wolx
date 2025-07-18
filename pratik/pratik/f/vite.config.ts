@@ -16,5 +16,9 @@ export default defineConfig({
       '/api': 'http://localhost:3002',
     },
   },
+  define: {
+    // Saat dilimini build sırasında ayarla
+    'process.env.TZ': JSON.stringify('Europe/Istanbul'),
+  },
 })
 

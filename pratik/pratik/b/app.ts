@@ -20,13 +20,24 @@ declare global {
     }
   }
 }
-
-import modulRoutes from "./routes/modulRoutes.js";
+//ROUTELARI BURAYA ALALIM
 import userRoutes from './routes/userRoutes.js';
+import parametreRoutes from "./routes/Ayarlar/parametreRoutes.js";
+import modulRoutes from "./routes/modulRoutes.js";
+import cariRoutes from "./routes/Cari/cariRoutes.js";
+import ilRoutes from './routes/UtilRoutes/ilRoutes.js';
+import ilceRoutes from './routes/UtilRoutes/ilceRoutes.js';
+import ulkeRoutes from './routes/Cari/ulkeRoutes.js';
+import cariGrupKoduRoutes from './routes/Cari/cariGrupKoduRoutes.js';
+import cariHareketleriRoutes from "./routes/Cari/cariHareketleriRoutes.js";
+
 
 // __dirname değişkenini ESM için tanımla
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Saat dilimini ayarla
+process.env.TZ = 'Europe/Istanbul';
 
 // .env dosyasını ortama göre yükle (eğer db.js'den önce çalıştırılırsa)
 const envPath = path.join(
@@ -127,10 +138,19 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   })().catch(next);
 });
 
-// Bayi route'larını ekle
+//Pratik route'larını ekle
 
-app.use("/api/moduller", modulRoutes);
 app.use('/api', userRoutes);
+app.use("/api/ayarlar/parametreler", parametreRoutes);
+app.use("/api/moduller", modulRoutes);
+
+app.use("/api/cariler", cariRoutes);
+app.use('/api/iller', ilRoutes);
+app.use('/api/ilceler', ilceRoutes);
+app.use('/api/ulkeler', ulkeRoutes);
+app.use('/api/carigrupkodlari', cariGrupKoduRoutes);
+app.use("/api/carihareketleri", cariHareketleriRoutes);
+
 
 app.get('/api/test', (req, res) => {
   res.json({ message: 'API çalışıyor!' });

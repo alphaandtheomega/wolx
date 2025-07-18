@@ -211,6 +211,14 @@ export async function createConnection(): Promise<pg.Client> {
     await client.connect();
     console.log(`PostgreSQL veritabanına (${dbConfig.database}) bağlandı`);
     
+    // Session'da saat dilimini ayarla
+    try {
+      await client.query("SET timezone = 'Europe/Istanbul'");
+      console.log('PostgreSQL session timezone ayarlandı: Europe/Istanbul');
+    } catch (timezoneError) {
+      console.error('Timezone ayarlama hatası:', timezoneError);
+    }
+    
     // Test sorgusu yap, veritabanı ismine eriş
     try {
       const result = await client.query('SELECT current_database() as db_name');

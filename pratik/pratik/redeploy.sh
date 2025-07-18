@@ -3,7 +3,7 @@
 echo "Container lar durduruluyor..."
 docker compose down
 
-echo "Docker temizli ki yapi l yor..."
+echo "Docker temizli ki yapil l yor..."
 docker network prune -f
 docker volume prune -f
 docker image prune -f

@@ -8,6 +8,9 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --sidebar-width: var(--sidebar-width);
+  --sidebar-width-icon: var(--sidebar-width-icon);
+  --sidebar-width-mobile: var(--sidebar-width-mobile);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -43,6 +46,9 @@
 
 :root {
   --radius: 0.625rem;
+  --sidebar-width: 16rem;
+  --sidebar-width-icon: 3rem;
+  --sidebar-width-mobile: 18rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -66,14 +72,82 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.4 0 0);
+  --sidebar-primary: oklch(0.755 0.181 186.6);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-accent: oklch(0.95 0 0);
+  --sidebar-accent-foreground: oklch(0.15 0 0);
+  --sidebar-border: oklch(0.9 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --dashboard-accent: oklch(0.57 0.19 190.5); /* gerçek yeşil */
+  --dashboard-accent-foreground: oklch(1 0 0);
+  /* TEXT COLORS */
+  --btn-text-light: oklch(0.98 0.01 280); /* kırık beyaz */
+  --btn-text-dark: oklch(0.22 0.01 280); /* koyu gri */
+
+  /* TEXT COLOR - TEK RENK TEMA (AÇIK) */
+  --btn-text-main: oklch(0.98 0.01 280);
+
+  /* PRIMARY (Marka/Ana) */
+  --btn-primary-bg: oklch(0.60 0.27 280);
+  --btn-primary-text: var(--btn-text-main);
+
+  /* SUCCESS (Kaydet/Ekle/Onay/Seç/Aktar/Excel) */
+  --btn-kaydet-bg: oklch(0.60 0.27 150);
+  --btn-kaydet-text: var(--btn-text-main);
+  --btn-ekle-bg: oklch(0.60 0.27 150);
+  --btn-ekle-text: var(--btn-text-main);
+  --btn-sec-bg: oklch(0.60 0.27 150);
+  --btn-sec-text: var(--btn-text-main);
+  --btn-aktar-bg: oklch(0.60 0.27 150);
+  --btn-aktar-text: var(--btn-text-main);
+  --btn-exceleat-bg: oklch(0.60 0.27 150);
+  --btn-exceleat-text: var(--btn-text-main);
+
+  /* DANGER (Sil/İptal/Kapat/PDF) */
+  --btn-sil-bg: oklch(0.60 0.27 20);
+  --btn-sil-text: var(--btn-text-main);
+  --btn-iptal-bg: oklch(0.60 0.27 20);
+  --btn-iptal-text: var(--btn-text-main);
+  --btn-kapat-bg: oklch(0.60 0.27 20);
+  --btn-kapat-text: var(--btn-text-main);
+  --btn-pdf-bg: oklch(0.60 0.27 20);
+  --btn-pdf-text: var(--btn-text-main);
+  --btn-pdfeat-bg: oklch(0.60 0.27 20);
+  --btn-pdfeat-text: var(--btn-text-main);
+
+  /* WARNING (Yazdır) */
+  --btn-yazdir-bg: oklch(0.60 0.27 80);
+  --btn-yazdir-text: var(--btn-text-main);
+
+  /* INFO (Düzenle/Kopyala/Önizle) */
+  --btn-duzenle-bg: oklch(0.60 0.27 250);
+  --btn-duzenle-text: var(--btn-text-main);
+  --btn-kopyala-bg: oklch(0.60 0.27 250);
+  --btn-kopyala-text: var(--btn-text-main);
+  --btn-onizle-bg: oklch(0.60 0.27 250);
+  --btn-onizle-text: var(--btn-text-main);
+
+  /* SECONDARY/NEUTRAL (Listele/Bul/Yenile/Geri Dön/Input/Sonraki/Önceki) */
+  --btn-listele-bg: oklch(0.60 0.10 280);
+  --btn-listele-text: var(--btn-text-main);
+  --btn-bul-bg: oklch(0.60 0.10 280);
+  --btn-bul-text: var(--btn-text-main);
+  --btn-yenile-bg: oklch(0.60 0.10 280);
+  --btn-yenile-text: var(--btn-text-main);
+  --btn-geri-don-bg: oklch(0.60 0.01 280);
+  --btn-geri-don-text: var(--btn-text-main);
+  --btn-inputicindekibuton-bg: oklch(0.60 0.01 280);
+  --btn-inputicindekibuton-text: var(--btn-text-main);
+  --btn-onceki-bg: oklch(0.60 0.01 280);
+  --btn-onceki-text: var(--btn-text-main);
+  --btn-sonraki-bg: oklch(0.60 0.01 280);
+  --btn-sonraki-text: var(--btn-text-main);
+
+  /* İŞLEMLER: Mor */
+  --btn-islemler-bg: oklch(0.60 0.27 320);
+  --btn-islemler-text: var(--btn-text-main);
 }
 
 .dark {
@@ -100,14 +174,57 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar: oklch(0.18 0 0);
+  --sidebar-foreground: oklch(0.83 0 0);
+  --sidebar-primary: oklch(0.75 0.19 60);
+  --sidebar-primary-foreground: oklch(0.95 0 0);
+  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(1 0 0 / 15%);
   --sidebar-ring: oklch(0.556 0 0);
+  --dashboard-accent: oklch(0.75 0.19 60); /* turuncu */
+  --dashboard-accent-foreground: oklch(1 0 0);
+  --btn-kaydet-bg: oklch(0.755 0.181 186.6);
+  --btn-kaydet-text: oklch(1 0 0);
+  --btn-sil-bg: oklch(0.55 0.22 29.5);
+  --btn-sil-text: oklch(1 0 0);
+  --btn-iptal-bg: oklch(0.35 0.01 270);
+  --btn-iptal-text: oklch(1 0 0);
+  --btn-yenile-bg: oklch(0.6 0.19 210);
+  --btn-yenile-text: oklch(1 0 0);
+  --btn-ekle-bg: oklch(0.65 0.22 70);
+  --btn-ekle-text: oklch(1 0 0);
+  --btn-onceki-bg: oklch(0.65 0.21 85);
+  --btn-onceki-text: oklch(1 0 0);
+  --btn-sonraki-bg: oklch(0.65 0.21 85);
+  --btn-sonraki-text: oklch(1 0 0);
+  --btn-kapat-bg: oklch(0.35 0.01 270);
+  --btn-kapat-text: oklch(1 0 0);
+  --btn-bul-bg: oklch(0.45 0.19 255);
+  --btn-bul-text: oklch(1 0 0);
+  --btn-listele-bg: oklch(0.45 0.19 255);
+  --btn-listele-text: oklch(1 0 0);
+  --btn-kopyala-bg: oklch(0.6 0.19 235);
+  --btn-kopyala-text: oklch(1 0 0);
+  --btn-exceleat-bg: oklch(0.65 0.19 142.5);
+  --btn-exceleat-text: oklch(1 0 0);
+  --btn-yazdir-bg: oklch(0.6 0.19 235);
+  --btn-yazdir-text: oklch(1 0 0);
+  --btn-islemler-bg: oklch(0.4 0.19 320);
+  --btn-islemler-text: oklch(1 0 0);
+  --btn-inputicindekibuton-bg: oklch(0.6 0.19 210);
+  --btn-inputicindekibuton-text: oklch(1 0 0);
+  --btn-onizle-bg: oklch(0.6 0.19 210);
+  --btn-onizle-text: oklch(1 0 0);
+  --btn-geri-don-bg: oklch(0.35 0.01 270);
+  --btn-geri-don-text: oklch(1 0 0);
+  --btn-aktar-bg: oklch(0.6 0.19 210);
+  --btn-aktar-text: oklch(1 0 0);
+  --sidebar-active-bar: #fff;
+  --btn-sec-bg: oklch(0.65 0.19 142.5);
+  --btn-sec-text: oklch(1 0 0);
+  --btn-duzenle-bg: oklch(0.4 0.19 320);
+  --btn-duzenle-text: oklch(1 0 0);
 }
 
 @layer base {
@@ -116,5 +233,69 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Roboto', system-ui, sans-serif;
   }
 }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+.dashboard-accent-bg {
+  background: var(--dashboard-accent) !important;
+  color: var(--dashboard-accent-foreground) !important;
+}
+
+.dashboard-accent-text {
+  color: var(--dashboard-accent) !important;
+}
+
+/* Kullanım örneği:
+.sidebar-gradient {
+  background: var(--sidebar-primary);
+}
+*/
+
+
+
+
+

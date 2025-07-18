@@ -8,6 +8,8 @@ services:
       POSTGRES_DB: ${MUSTERI_ADI}
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${MUSTERI_POSTGRES_PASSWORD}
+      TZ: Europe/Istanbul
+      PGTZ: Europe/Istanbul
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -29,6 +31,7 @@ services:
       DB_NAME: ${MUSTERI_ADI}
       DB_PORT: 5432
       CORS_ORIGIN: https://${MUSTERI_ADI}.${MUSTERI_DOMAIN}
+      TZ: Europe/Istanbul
     ports:
       - "3000:3000"
     depends_on:
@@ -40,6 +43,8 @@ services:
       context: ./f
       dockerfile: Dockerfile
     container_name: ${MUSTERI_ADI}_frontend
+    environment:
+      TZ: Europe/Istanbul
     expose:
       - "80"
     depends_on:

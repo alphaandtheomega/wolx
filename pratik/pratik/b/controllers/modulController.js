@@ -24,7 +24,8 @@ export async function getModulById(req, res) {
 }
 
 export async function createModul(req, res) {
-  const { modul_kodu, modul_adi, modul_aciklama, kayit_yapan_kullanici } = req.body;
+  const { modul_kodu, modul_adi, modul_aciklama } = req.body;
+  const kayit_yapan_kullanici = req.user ? req.user.email : null;
   try {
     const connection = req.db || (await getConnection());
     const newModul = await connection.query(
@@ -66,4 +67,4 @@ export async function updateModul(req, res) {
   } catch (error) {
     res.status(500).json({ message: "Modül güncellenemedi: " + error.message });
   }
-}
+} 
